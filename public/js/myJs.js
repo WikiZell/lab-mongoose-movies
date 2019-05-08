@@ -50,7 +50,7 @@ $(document).ready(function(){
 
             let form = $(this);
             let formData = $(this).serializeArray();
-            formData.push({ name: "movies", value: [] });
+            /* formData.push({ name: "movies", value: [""] }); */
             let actionurl = $(this).attr("action")                  
 
             $.ajax({
@@ -92,7 +92,7 @@ $(document).ready(function(){
 
           if (confirm(`Are you sure you want to delete celebrity: ${selectedCeleb.text()}?`)) {
             //Delete
-            $.get("/delete-celebrity", {"id": selectedCeleb.val() })
+            $.get("/celebrities/delete-celebrity", {"id": selectedCeleb.val() })
                 .done(function (data) {
                     //Remove THIS ---> ROW                    
                     selectedCeleb.remove();
@@ -168,7 +168,7 @@ $(document).ready(function(){
                 case "delete":
                 if (confirm('Are you sure you want to delete '+ $(this).closest('tr').find( ".title" ).data("title") +'?')) {
                     //Delete
-                    $.get("/delete-movie", { "action": $(this).data("action"),"id": $(this).data("id") })
+                    $.get("/movie/delete-movie", { "action": $(this).data("action"),"id": $(this).data("id") })
                         .done(function (data) {
                             //Remove THIS ---> ROW
                             $(this).tooltip("hide")
@@ -181,7 +181,7 @@ $(document).ready(function(){
 
                 case "edit": 
                                 
-                $.get("/detail-movie", {id:$(this).data("id")})
+                $.get("/movie/detail-movie", {id:$(this).data("id")})
                         .done(function (data) {
                             //Create modal with current data
                             makeModal(data[0],"updateModal");                
@@ -226,7 +226,7 @@ $(document).ready(function(){
                 
                 case "details":
                     //alert( "Will get DETAILS -->" +  $(this).data("id")   );
-                  $.get("/detail-movie",{id: $(this).data("id")})
+                  $.get("/movie/detail-movie",{id: $(this).data("id")})
                     .done(function (data) {                  
                     //Create modal with current data
                     makeModal(data[0],"detailModal");                
@@ -341,7 +341,7 @@ $(document).ready(function(){
                       });                     
                           
                     $.ajax({
-                      url: "/add-movie",
+                      url: "/movie/add-movie",
                       type: "post",
                       dataType: "text",
                       data: $.param(formData),

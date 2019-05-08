@@ -15,7 +15,7 @@ function makeModal(data,type){
             </div>
             <div class="modal-body">
       
-            <form id="updateMovie" action="/update-movie" method="post">
+            <form id="updateMovie" action="/movie/update-movie" method="post">
             <input type="hidden" name="id" value="${data._id}"></input>
             <div class="form-group">
               <label for="title">Title:</label>
@@ -138,7 +138,7 @@ function makeModal(data,type){
             <div class="modal-body">
             
             <h4>Add Celebrity:</h4>
-            <form id="addCelebrity" action="/add-celebrities" method="post">
+            <form id="addCelebrity" action="/celebrities/add-celebrities" method="post">
             <div class="input-group">            
             <div class="input-group-prepend">
                 <span class="input-group-text">Name and Age</span>
@@ -151,7 +151,7 @@ function makeModal(data,type){
             <hr>
             <h4>Celebrities Manager:</h4>
 
-            <form id="relation-celebrity-form" action="/celeb-movies" method="post">
+            <form id="relation-celebrity-form" action="/celebrities/celeb-movies" method="post">
             <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="celebritiesList">Celebrity:</label>
