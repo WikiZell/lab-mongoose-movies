@@ -1,0 +1,59 @@
+html, body {
+    height: 100%;
+  }
+
+.landing-page-container {
+    background: url('/public/images/backgroundCinema.jpg') no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+  }
+
+  .landing-content {
+    margin-top: 20%;
+  }
+
+  .landing-content h1{
+    color: white;
+    font-weight: bold;
+  }
+
+  .landing-content button{
+      color: #a9cfd0;
+  }
+
+  .movie-list-container .actions i{
+      margin-left: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+  }
+
+  .update-success{
+    color: green;
+  }
+
+  .message-success{
+    color: green;
+  }
+
+  .message-fail{
+    color: red;
+  }
+  .message {
+    width: 100%;
+  }
+
+  .nav-buttons{
+    display: flex;
+    float: right;
+  }
+
+  .add-movie-input input{
+    width: 70%;
+  }
+
+  .nav-buttons button {
+    margin-right: 5px;
+  }
