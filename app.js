@@ -23,6 +23,8 @@ app.engine(
   })
 );
 
+
+
 app.set("view engine", ".hbs");
 app.use("/public", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -40,6 +42,8 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+
+
 
 app.use("/", userInfo, require("./routes/index"))
 app.use("/", userInfo, require("./routes/movie"))
