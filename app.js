@@ -34,6 +34,12 @@ mongoose.connect('mongodb://localhost/imdb', {useNewUrlParser: true}, (err)=> {
     else console.log("ERROR: Can't connect to database", err)
 })
 
+/* //Ip need to be added in whitelist
+mongoose.connect('mongodb+srv://wikizell:ironhack@wikizell-gj6o2.azure.mongodb.net/imdb', {useNewUrlParser: true}, (err)=> {
+    if(!err)console.log("connected to database")
+    else console.log("ERROR: Can't connect to database", err)
+}) */
+
 app.use(session({
   secret: "basic-auth-secret",
   cookie: { maxAge: 360000 },

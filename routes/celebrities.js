@@ -70,10 +70,7 @@ app.post("/celebrities/add-celebrities", async (req, res)=> {
     
     //Get intersection BEFORE / AFTER
     var removedMovies = req.body.oldMovies.filter(x => !req.body.movies.includes(x));    
-    console.log("intersection",removedMovies)
     
-    
-  
     let moviesIds = req.body.movies.map( (id)=> {
         return mongoose.Types.ObjectId(id)
     })

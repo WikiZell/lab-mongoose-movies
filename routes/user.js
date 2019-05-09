@@ -51,8 +51,6 @@ app.get("/user/login", (req, res) => {
   });
 
 app.post("/user/login", (req, res) => {
-
-    console.log(req.body);
     
     UsersDB.find({ email: req.body.email })
         .then((user) => {
