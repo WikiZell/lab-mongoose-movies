@@ -259,6 +259,13 @@ $(document).ready(function(){
                   
                   break;
 
+                  case "dashboard-user-btn":                  
+                  alert('Coming Soon!')
+                  
+                  break;
+
+                  
+
                 default:
                 
                 break;

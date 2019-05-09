@@ -31,7 +31,7 @@ app.post("/user/sign-up", (req, res) => {
                     else {
                         newUser.password = hash
                         UsersDB.create(newUser)
-                            .then((user) => {
+                            .then((user) => {                                
                                 res.status(200).send({status:"success",message:"User Created"})                                
                             })
                     }
@@ -66,7 +66,7 @@ app.post("/user/login", (req, res) => {
                         //Password match
                         delete user[0].password
                         req.session.currentUser = user[0];
-                        res.redirect("/movie/moviesList")
+                        res.status(200).send({status:"success",message:"Logged in!"})
                     }else{
                         res.status(200).send({status:"error",message:"Invalid credentials"}) 
                     }

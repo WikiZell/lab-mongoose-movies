@@ -102,3 +102,15 @@
   .back {
     padding-right: 5px;
   }
+
+  .message {
+    padding-left: 5px;
+  }
+
+  .message-success{
+    color: green;
+  }
+
+  .message-fail{
+    color: red;
+  }
