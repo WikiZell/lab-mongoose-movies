@@ -1,10 +1,3 @@
-/* 
-npm init -y 
-npm install express --save
-npm install nodemon
-*/
-
-//require express
 const express = require("express");
 const exphbs = require("express-handlebars");
 

@@ -52,28 +52,44 @@ app.post("/celebrities/add-celebrities", async (req, res)=> {
   })
   
   
-  app.post("/celebrities/celeb-movies", async (req, res)=> {
+  app.post("/celebrities/celeb-movies", async (req, res, next)=> {
     
-    if(!Array.isArray(req.body.movies) ){
-      req.body.movies = [req.body.movies];
-    }
-    if(!Array.isArray(req.body.oldMovies && req.body.oldMovies.length == 0 ) ){
+    console.log("OLD",req.body.oldMovies)
+    console.log("typeof", typeof req.body.oldMovies)
+    console.log("lentgth",req.body.oldMovies.length)
+
+    console.log("NEW",req.body.movies)
+    
+    if(!req.body.oldMovies){
         req.body.oldMovies = [];
-        var removedMovies = [];   
-      }
-    if(!Array.isArray(req.body.oldMovies && req.body.oldMovies.length > 0 ) ){
-        req.body.oldMovies = [req.body.oldMovies];
-        //Get intersection BEFORE / AFTER
-        var removedMovies = req.body.oldMovies.filter(x => !req.body.movies.includes(x));     
     }
 
+    if(!Array.isArray(req.body.oldMovies) ){
+        req.body.oldMovies = [req.body.oldMovies];
+    }
     
+    if(!Array.isArray(req.body.movies) ){
+        req.body.movies = [req.body.movies];
+      }
+
+    
+    
+    //Get intersection BEFORE / AFTER
+    var removedMovies = req.body.oldMovies.filter(x => !req.body.movies.includes(x));    
+    console.log("intersection",removedMovies)
     
     
   
     let moviesIds = req.body.movies.map( (id)=> {
         return mongoose.Types.ObjectId(id)
     })
+
+    
+    if(removedMovies.length != 0){
+    var removedMovies = removedMovies.map( (id)=> {
+        return mongoose.Types.ObjectId(id)
+    })
+    }
   
     let celebID = mongoose.Types.ObjectId(req.body.celebrity);
   
@@ -94,8 +110,8 @@ app.post("/celebrities/add-celebrities", async (req, res)=> {
         }
   
         //Remove celebrity from movie not more linked
-        if(removedMovies.length > 0){
-            
+        
+        if(removedMovies.length  != 0){
         for (let i = 0; i < removedMovies.length; i++) {
           let movieID = removedMovies[i];
           MoviesDB.findOneAndUpdate({ _id: movieID }, { $pull: { celebrities: celebID } }, { new: true, useFindAndModify: false }, (err, res) => {
@@ -105,6 +121,7 @@ app.post("/celebrities/add-celebrities", async (req, res)=> {
           })
         }
         }
+        
         res.status(200).json(result)
   
         

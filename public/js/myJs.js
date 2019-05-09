@@ -24,7 +24,6 @@ $(document).ready(function(){
       $(moviesToSelect).each(function (i, movieID) {
         $("#movieList").find(`[value='${movieID}']`).prop("selected",true);
       });
-
     })
 
     //listener for celebrity modal
