@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign Up</h5>
+                    <form class="form-signin" action="/user/sign-up" method="POST">
+
+                        <div class="form-label-group">
+                            <input type="text" id="inputName" name="fullName" class="form-control" placeholder="Fullname"
+                                required autofocus>
+                            <label for="inputName">Full Name</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address"
+                                required>
+                            <label for="inputEmail">Email address</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+                                required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register!</button>
+
+                    </form>
+                    
+                </div>
+                <div class="back"><a class="float-right" href="/">...back</a></div>
+            </div>
+        </div>
+    </div>
+</div>

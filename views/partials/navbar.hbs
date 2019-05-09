@@ -1,5 +1,46 @@
-<nav>
-        <a href="/">Movies List</a>        
-        <a href="/addMovie">Add a movie</a>
+<nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+                <div class="input-group">
+                        <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input id="livesearch" class="form-control mr-sm-2" type="search" aria-label="Search" aria-describedby="Search">
+                </div>
+        </form>
+        <span class="nav-buttons">
+                
+
+                {{#if currentUser}}
+
+                <button id="add-celebrities-btn" type="button" data-action="celebrities-btn" class="btn btn-info">Celebrities</button>
+
+                <button id="add-movie-btn" type="button" data-action="add-movie-btn" class="btn btn-success">Add New Movie</button>
+
+                <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-user"></i>{{currentUser.fullName}}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">                             
+                        <button class="dropdown-item" data-action="dashboard-user-btn" type="button">Dashboard</button>
+                        <button class="dropdown-item" data-action="logout-btn" type="button">Logout</button>  
+                        </div>
+                </div>                                        
+                                        
+                {{else}}
+
+                <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Login / Sign Up
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">                             
+                          <button class="dropdown-item" data-action="sign-up-btn" type="button">Sign-Up</button>
+                          <button class="dropdown-item" data-action="login-btn" type="button">Login</button>
+                        </div>
+                </div>
+
+                {{/if}}
+
+        </span>
+        
 </nav>
 

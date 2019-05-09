@@ -54,12 +54,6 @@ app.post("/celebrities/add-celebrities", async (req, res)=> {
   
   app.post("/celebrities/celeb-movies", async (req, res, next)=> {
     
-    console.log("OLD",req.body.oldMovies)
-    console.log("typeof", typeof req.body.oldMovies)
-    console.log("lentgth",req.body.oldMovies.length)
-
-    console.log("NEW",req.body.movies)
-    
     if(!req.body.oldMovies){
         req.body.oldMovies = [];
     }

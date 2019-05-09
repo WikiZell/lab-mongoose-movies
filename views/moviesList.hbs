@@ -1,23 +1,5 @@
 <div class="movie-list-container">
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-            {{!-- <label for="livesearch">Live Filter:</label>
-            <input id="livesearch" class="form-control mr-sm-2" type="search" placeholder="Type something..." aria-label="Search"> --}}
 
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-search"></i></span>
-                </div>
-                <input type="text" id="livesearch" class="form-control mr-sm-2" type="search" aria-label="Search" aria-describedby="Search">
-            </div>
-            </form>
-            <span class="nav-buttons">
-                <button id="add-celebrities-btn" type="button" data-action="celebrities-btn" class="btn btn-info">Celebrities</button>
-
-                <button id="add-movie-btn" type="button" data-action="add-movie-btn" class="btn btn-success">Add New Movie</button>
-            </span>
-
-            </nav>
     <table id="movies-table" class="table table-hover table-dark">
         <thead>
             <tr>
@@ -41,10 +23,15 @@
                 <td class="duration">{{this.duration}}</td>
                 <td class="genre">{{this.genre}}</td>
                 <td class="rate">{{this.rate}}</td>
-                <td class="actions">
-                    <i class="fas fa-info"data-toggle="tooltip" data-placement="top" title="Details" data-action="details" data-id="{{this._id}}"></i>
-                    <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="top" title="Delete" data-action="delete" data-id="{{this._id}}"></i>
-                    <i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Edit" data-action="edit" data-id="{{this._id}}"></i></td>
+                <td class="actions"> 
+                    {{#if currentUser}}
+                        <i class="fas fa-info"data-toggle="tooltip" data-placement="top" title="Details" data-action="details" data-id="{{this._id}}"></i>
+                        <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="top" title="Delete" data-action="delete" data-id="{{this._id}}"></i>
+                        <i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Edit" data-action="edit" data-id="{{this._id}}"></i></td>
+                    {{else}}
+                        {{!-- <i class="fas fa-info"data-toggle="tooltip" data-placement="top" title="Details" data-action="details" data-id="{{this._id}}"></i> --}}
+                        <a data-toggle="tooltip" data-placement="top" title="Details" data-action="details" data-id="{{this._id}}" class="btn btn-info btn-sm detail-btn active" role="button" aria-pressed="true">Details</a>                                        
+                    {{/if}}
             </tr>
             {{/each}}
         </tbody>

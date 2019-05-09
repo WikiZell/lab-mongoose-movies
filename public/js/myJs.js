@@ -160,7 +160,7 @@ $(document).ready(function(){
         /* $(document.body).find('[data-toggle="tooltip"]').tooltip(); */
         
         //Action
-        $(".movie-list-container").on("click", ".actions > i,button" ,function(){
+        $(".movie-list-container, nav").on("click", ".actions > i,button , a" ,function(){
             let id = $(this).data("id");
 
             switch ($(this).data("action")) {
@@ -241,6 +241,21 @@ $(document).ready(function(){
 
                 case "celebrities-btn":
                   celebrities();
+                  
+                  break;
+                
+                  case "sign-up-btn":                  
+                  $(location).attr('href', '/user/sign-up');
+                  
+                  break;
+
+                  case "login-btn":                  
+                  $(location).attr('href', '/user/login');
+                  
+                  break;
+
+                  case "logout-btn":                  
+                  $(location).attr('href', '/user/logout');
                   
                   break;
 

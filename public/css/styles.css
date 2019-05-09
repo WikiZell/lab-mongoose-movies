@@ -57,3 +57,7 @@ html, body {
   .nav-buttons button {
     margin-right: 5px;
   }
+
+  .detail-btn{
+    cursor: help;
+  }
